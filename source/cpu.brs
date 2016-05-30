@@ -21,6 +21,12 @@ Function CreateCPU() as Object
           
           m.Register_sp = CreateSpecial16BRegister(&hFFEE)
           m.Register_pc = CreateSpecial16BRegister(&h100)
+          
+          m.dispatcher = CreateDispatcher()
+        End Function
+        
+        RunCycle    : Function() as Void
+            m.dispatcher.dispatch()
         End Function
     }
     
